@@ -1,0 +1,257 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url('fotostar/Screenshot\ 2025-11-12\ 152226.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    position: relative;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); display: flex;
+    justify-content: center; align-items: center; z-index: 1000;
+}
+.modal-content {
+    background-color: #222; padding: 30px; border-radius: 10px;
+    border: 2px solid #ffe81f; box-shadow: 0 0 20px rgba(255, 232, 31, 0.3);
+    width: 100%; max-width: 400px; text-align: center; position: relative;
+}
+.modal-close {
+    position: absolute; top: 10px; right: 15px; background: none; border: none;
+    color: #fff; font-size: 2em; line-height: 1; cursor: pointer;
+}
+.modal-close:hover { color: #ffe81f; }
+.login-form h2 { color: #ffe81f; margin-top: 0; }
+.form-group { margin-bottom: 20px; text-align: left; }
+.form-group label { display: block; margin-bottom: 5px; color: #ccc; }
+.form-group input {
+    width: 95%; padding: 10px; background-color: #333;
+    border: 1px solid #555; color: #fff; border-radius: 5px;
+}
+.login-button {
+    background-color: #ffe81f; color: #000; border: none; padding: 12px 20px;
+    font-size: 1.1em; font-weight: bold; border-radius: 5px;
+    cursor: pointer; width: 100%; transition: background-color 0.3s ease;
+}
+.login-button:hover { background-color: #fff; }
+.error-message { color: #ff4d4d; margin-top: 15px; font-size: 0.9em; }
+
+
+header {
+    background-image: url('fotostar/star-wars-logo-3654.jpg'); background-size: cover;
+    background-position: center top; padding: 20px; text-align: center;
+    border-bottom: 3px solid #ffe81f; position: relative; z-index: 1;
+}
+header h1 {
+    color: #ffe81f; margin: 0; /* Margin-bottom quitado */ font-size: 2.5em;
+    text-shadow: 2px 2px 4px #000;
+}
+
+
+
+nav {
+    background-image: url('starwars_menu_bg.jpg'); background-size: cover;
+    background-position: center bottom; border-bottom: 2px solid #000;
+    display: flex; justify-content: center; position: relative; z-index: 1;
+}
+.menu-toggle { display: none; background-color: #ffe81f; color: #000; border: none; padding: 10px 15px; font-size: 24px; cursor: pointer; position: absolute; left: 10px; top: 5px; }
+nav ul { list-style-type: none; margin: 0; padding: 0; text-align: center; }
+nav li { display: inline-block; }
+nav a { display: block; color: #fff; text-decoration: none; padding: 14px 20px; font-weight: bold; transition: background-color 0.3s ease; text-shadow: 1px 1px 2px #000; }
+nav a:hover { background-color: rgba(255, 232, 31, 0.3); color: #ffe81f; }
+nav a.active { background-color: #ffe81f; color: #000; text-shadow: none; }
+#nav-login-button { background-color: #004d00; color: #ffe81f; }
+#nav-login-button:hover { background-color: #008000; }
+#nav-logout-button { background-color: #800000; color: #ffe81f; }
+#nav-logout-button:hover { background-color: #c00; }
+nav a.locked { color: #777; cursor: not-allowed; background-color: #2a2a2a; }
+
+
+.main-layout {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+.content-area {
+    flex: 3;
+    background-color: rgba(34, 34, 34, 0.85);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+
+.sidebar {
+    flex: 1;
+}
+.sidebar-widget {
+    background-color: rgba(34, 34, 34, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.sidebar-widget h3 {
+    color: #ffe81f;
+    margin-top: 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+.sidebar-widget p {
+    font-size: 0.9em;
+}
+.sidebar-widget ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.sidebar-widget li {
+    padding: 5px 0;
+    border-bottom: 1px solid #444;
+}
+.sidebar-widget li:last-child {
+    border-bottom: none;
+}
+.sidebar-widget a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.sidebar-widget a:hover {
+    color: #ffe81f;
+}
+.sidebar-widget img.profile-pic {
+    border-radius: 50%;
+    border: 3px solid #ffe81f;
+    max-width: 150px;
+    display: block;
+    margin: 10px auto;
+}
+
+.sidebar-widget .search-bar input {
+    min-width: 0;
+    width: 60%;
+}
+
+
+main.main-single-column {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: rgba(34, 34, 34, 0.85);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+h2, h3 {
+    color: #ffe81f;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+
+img { max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 15px auto; transition: all 0.3s ease-in-out; }
+img:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(255, 232, 31, 0.4); }
+section, .personaje, .pelicula { background-color: rgba(51, 51, 51, 0.9); margin-bottom: 20px; padding: 15px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+
+footer {
+    text-align: left;
+    padding: 40px 20px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+    border-top: 3px solid #ffe81f;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+.footer-column h4 {
+    color: #ffe81f;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+.footer-column li {
+    margin-bottom: 10px;
+}
+.footer-column a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-column a:hover {
+    color: #ffe81f;
+}
+.footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    color: #888;
+    font-size: 0.9em;
+}
+
+
+
+@media (max-width: 768px) {
+    nav { justify-content: flex-start; flex-direction: column; }
+    .menu-toggle { display: block; position: static; width: 100%; text-align: left; padding-left: 20px; background-color: rgba(255, 232, 31, 0.8); }
+    nav ul { display: none; width: 100%; flex-direction: column; background-color: rgba(51, 51, 51, 0.95); }
+    nav li { display: block; width: 100%; text-align: center; border-top: 1px solid #444; }
+    nav ul.active { display: block; }
+    
+   
+    
+    .modal-content { margin: 10px; padding: 20px; }
+
+    .main-layout {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

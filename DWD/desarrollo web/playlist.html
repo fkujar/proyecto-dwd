@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Playlist con Videos Locales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a6dca;
+            --secondary-color: #e2d3bc;
+            --accent-color: #e7dda3;
+            --dark-bg: #0a6dca;
+            --light-bg: #f5f5f5;
+            --text-color: #f0f0f0;
+            --card-bg: #505050;
+            --card-hover: #505050;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--dark-bg);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #1a1a1a, #333333);
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px;
+            gap: 30px;
+        }
+
+        aside {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        aside h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside ul li {
+            margin-bottom: 12px;
+        }
+
+        aside ul li a {
+            display: block;
+            padding: 12px 18px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        aside ul li a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        main {
+            flex: 3;
+            min-width: 300px;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        main h1 {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-size: 2.5em;
+        }
+
+        .video-player {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .video-player video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-details h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .video-details p {
+            white-space: pre-line;
+            text-align: center;
+            margin: 0 auto 30px auto;
+            max-width: 800px;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .playlist-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .playlist-item {
+            background-color: var(--card-hover);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .playlist-item:hover {
+            transform: translateY(-7px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .playlist-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .playlist-item .item-info {
+            padding: 15px;
+            text-align: left;
+            color: #fff;
+        }
+
+        .playlist-item .item-info h4 {
+            margin-bottom: 5px;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
+        .playlist-item .item-info p {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        footer {
+            background-color: #212121;
+            color: var(--text-color);
+            padding: 40px 20px;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .columna {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+        }
+
+        .columna h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .columna ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .columna ul li {
+            margin-bottom: 10px;
+        }
+
+        .columna ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .columna ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        footer .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        footer .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            aside,
+            main {
+                min-width: unset;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .columna {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="identikit.html">Inicio</a></li>
+            <li><a href="#playlist">Canciones</a></li>
+            <li><a href="#abajo">Redes Sociales</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <aside id="barra">
+            <h3>Selección Rápida</h3>
+            <ul>
+                <li><a href="#" data-video-src="video/Los Graduados - Chano (720p, h264)" data-video-title="Los Graduados - Chano">Los Graduados</a></li>
+                <li><a href="#" data-video-src="videos/cris_mj.mp4" data-video-title="Si No Es Contigo - Cris MJ">Si No Es Contigo</a></li>
+                <li><a href="#" data-video-src="videos/kawala_ticket.mp4" data-video-title="Ticket to Ride - Kawala">Ticket to Ride</a></li>
+                <li><a href="#" data-video-src="videos/mac_miller.mp4" data-video-title="The Spins - Mac Miller">The Spins</a></li>
+                <li><a href="#" data-video-src="videos/drake_massive.mp4" data-video-title="Massive - Drake">Massive</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <h1>Mi Playlist de Canciones Favoritas</h1>
+
+            <div class="video-player">
+                <video id="local-video-player" controls autoplay loop>
+                    <source src="videos/kawala_ticket.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+            </div>
+
+            <div class="video-details">
+                <h3 id="current-video-title">Ticket to Ride - Kawala</h3>
+                <p id="current-video-lyrics">
+                    (Letra de la canción)
+
+                    Dreaming to sounds
+                    That carry me so far away
+                    The freedom now
+                    Forever I'll be bound
+                    Dream of the south
+                    Oh, where the sun's so paramount
+                    To the seasons
+                    I'll spend my time here now
+                    ...y más.
+                </p>
+            </div>
+
+            <h2 id="playlist">Playlist Completa</h2>
+            <div class="playlist-items">
+                <div class="playlist-item" data-video-src="videos/chano_graduados.mp4" data-video-title="Los Graduados - Chano" data-video-lyrics="...No permita el cielo no, que se apague esta ilusión...">
+                    <img src="imagenplaylist/a1.png" alt="Chano - Los Graduados">
+                    <div class="item-info">
+                        <h4>Los Graduados</h4>
+                        <p>Chano</p>
+                    </div>
+                </div>
+                <div class="playlist-item" data-video-src="videos/cris_mj.mp4" data-video-title="Si No Es Contigo - Cris MJ" data-video-lyrics="...Si no es contigo amor, yo no quiero a nadie más...">
+                    <img src="imagenplaylist/a2.png" alt="Cris MJ - Si No Es Contigo">
+                    <div class="item-info">
+                        <h4>Si No Es Contigo</h4>
+                        <p>Cris MJ</p>
+                    </div>
+                </div>
+                <div class="playlist-item" data-video-src="videos/kawala_ticket.mp4" data-video-title="Ticket to Ride - Kawala" data-video-lyrics="...Dreaming to sounds that carry me so far away...">
+                    <img src="imagenplaylist/a3.png" alt="Kawala - Ticket to Ride">
+                    <div class="item-info">
+                        <h4>Ticket to Ride</h4>
+                        <p>Kawala</p>
+                    </div>
+                </div>
+                <div class="playlist-item" data-video-src="videos/mac_miller.mp4" data-video-title="The Spins - Mac Miller" data-video-lyrics="...When you get the feelin' it's gon' be a good night...">
+                    <img src="imagenplaylist/a4.png" alt="Mac Miller - The Spins">
+                    <div class="item-info">
+                        <h4>The Spins</h4>
+                        <p>Mac Miller</p>
+                    </div>
+                </div>
+                <div class="playlist-item" data-video-src="videos/drake_massive.mp4" data-video-title="Massive - Drake" data-video-lyrics="...I'm gonna be a better person than you ever know...">
+                    <img src="imagenplaylist/a5.png" alt="Drake - Massive">
+                    <div class="item-info">
+                        <h4>Massive</h4>
+                        <p>Drake</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer id="abajo">
+        <div id="columna1" class="columna">
+            <h3>Felipe Kujarchuk</h3>
+            <p>Creador de esta fantástica playlist.</p>
+        </div>
+        <div id="columna2" class="columna">
+            <h3>Mapa del Sitio</h3>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#playlist">Canciones</a></li>
+                <li><a href="#">Acerca de Mi</a></li>
+            </ul>
+        </div>
+        <div id="columna3" class="columna">
+            <h3>Redes Sociales</h3>
+            <ul>
+                <li><a href="https://github.com/fkujar">GitHub</a></li>
+                <li><a href="https://www.instagram.com/feli_kujar/?hl=es">Instagram</a></li>
+                <li><a href="https://x.com/kujarrcs">Twitter</a></li>
+            </ul>
+            <a href="#" class="back-to-top">Volver Arriba</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoPlayer = document.getElementById('local-video-player');
+            const currentVideoTitle = document.getElementById('current-video-title');
+            const currentVideoLyrics = document.getElementById('current-video-lyrics');
+            const playlistItems = document.querySelectorAll('.playlist-item');
+            const sidebarLinks = document.querySelectorAll('#barra ul li a');
+
+            const loadVideo = (videoSrc, title, lyrics) => {
+                const source = videoPlayer.querySelector('source');
+                source.src = videoSrc;
+                videoPlayer.load(); // Vuelve a cargar el video
+                videoPlayer.play(); // Inicia la reproducción
+                currentVideoTitle.textContent = title;
+                currentVideoLyrics.textContent = lyrics || 'No hay letra disponible para esta canción.';
+                // Desplazarse al reproductor
+                document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            playlistItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const videoSrc = item.dataset.videoSrc;
+                    const videoTitle = item.dataset.videoTitle;
+                    const videoLyrics = item.dataset.videoLyrics;
+                    loadVideo(videoSrc, videoTitle, videoLyrics);
+                });
+            });
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const videoSrc = link.dataset.videoSrc;
+                    const videoTitle = link.dataset.videoTitle;
+                    loadVideo(videoSrc, videoTitle, 'No hay letra disponible para esta selección rápida.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

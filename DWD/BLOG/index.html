@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars - Inicio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-button">&times;</button>
+            <form class="login-form" id="login-form">
+                <h2>Iniciar Sesión</h2>
+                <p>Usa **jedi@galaxia.com** y **fuerza**</p>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-button">Entrar</button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <header>
+            <h1>El Universo de Star Wars</h1>
+        </header>
+
+        <nav>
+            <button class="menu-toggle" aria-label="Abrir menú">☰ Menú</button>
+            <ul id="main-nav"></ul>
+        </nav>
+
+        <div class="main-layout">
+
+            <main class="content-area">
+                <h2>Las Trilogías de la Saga Skywalker</h2>
+                
+                <section>
+                    <h3>Trilogía de Precuelas (Episodios I-III)</h3>
+                    <p>
+                        Esta trilogía narra los eventos que llevaron a la caída de la República Galáctica y el 
+                        surgimiento del Imperio. Se centra en la historia de Anakin Skywalker, su 
+                        descubrimiento como un niño esclavo sensible a la Fuerza, su entrenamiento como Jedi 
+                        y su trágica caída al lado oscuro, convirtiéndose en el temible Darth Vader.
+                    </p>
+                    <ul>
+                        <li>Episodio I: La Amenaza Fantasma</li>
+                        <li>Episodio II: El Ataque de los Clones</li>
+                        <li>Episodio III: La Venganza de los Sith</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Trilogía Original (Episodios IV-VI)</h3>
+                    <p>
+                        La saga que lo empezó todo. Ambientada décadas después de las precuelas, sigue a 
+                        Luke Skywalker, un joven granjero de Tatooine, mientras se une a la Alianza Rebelde 
+                        para luchar contra el opresivo Imperio Galáctico. Descubre su legado como Jedi, 
+                        rescata a la Princesa Leia y se enfrenta a Darth Vader y al Emperador Palpatine.
+                    </p>
+                    <ul>
+                        <li>Episodio IV: Una Nueva Esperanza</li>
+                        <li>Episodio V: El Imperio Contraataca</li>
+                        <li>Episodio VI: El Retorno del Jedi</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Trilogía de Secuelas (Episodios VII-IX)</h3>
+                    <p>
+                        Treinta años después de la Batalla de Endor, una nueva amenaza, la Primera Orden, 
+                        surge de las cenizas del Imperio. Una nueva generación de héroes (Rey, una chatarrera 
+                        sensible a la Fuerza; Finn, un stormtrooper desertor; y Poe Dameron, un piloto de la 
+                        Resistencia) se une a los héroes legendarios de la Rebelión para luchar por la libertad.
+                    </p>
+                    <ul>
+                        <li>Episodio VII: El Despertar de la Fuerza</li>
+                        <li>Episodio VIII: Los Últimos Jedi</li>
+                        <li>Episodio IX: El Ascenso de Skywalker</li>
+                    </ul>
+                </section>
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>Sobre el Autor</h3>
+                    <img src="fotostar/fotoperfil.jpg" alt="Foto de perfil del autor" class="profile-pic">
+                    <p>¡Hola! Soy Felipe, un fanático de Star Wars creando este blog como proyecto para la materia de diseño y desarrollo web, espero que les guste mi blog.</p>
+                </div>
+                
+                </aside>
+        </div> <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="personajes.html">Personajes</a></li>
+                        <li><a href="peliculas.html">Películas (I-VI)</a></li>
+                        <li><a href="peliculas_modernas.html">Películas Modernas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Enlaces Oficiales</h4>
+                    <ul>
+                        <li><a href="https://www.starwars.com" target="_blank">StarWars.com</a></li>
+                        <li><a href="https://www.disneyplus.com" target="_blank">Disney+</a></li>
+                        <li><a href="https://www.lucasfilm.com" target="_blank">Lucasfilm</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <a href="mailto:tu-email@ejemplo.com" class="contact-link">
+            ✉️ fkujarchuk@uade.edu.ar
+        </a>
+                </div>
+            </div>
+           
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia - Nivel 2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url("imagenes sec/image.png") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        table {
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        h1, h3 {
+            margin: 10px 0;
+        }
+        input[type="radio"] {
+            margin: 10px 0;
+            transform: scale(1.2);
+            cursor: pointer;
+            accent-color: #007BFF; /* Azul moderno */
+        }
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #00BFFF;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay">
+
+    <!-- Cabecera -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="20" >
+        <tr>
+            <td align="center">
+                <font color="white" size="6">TRIVIA - NIVEL 2</font>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Contenido trivia con recuadro azul -->
+    <table width="80%" border="0" cellspacing="0" cellpadding="20" >
+        <tr>
+            <td align="center">
+                <h1>¡Correcto! Siguiente pregunta.</h1>
+                <h3>¿Qué país ganó más veces la Copa Mundial de Fútbol?</h3>
+                <p>
+                    <input type="radio" name="respuesta" value="a" onchange="verificarRespuesta('a')"> Argentina<br>
+                    <input type="radio" name="respuesta" value="b" onchange="verificarRespuesta('b')"> Italia<br>
+                    <input type="radio" name="respuesta" value="c" onchange="verificarRespuesta('c')"> Alemania<br>
+                    <input type="radio" name="respuesta" value="d" onchange="verificarRespuesta('d')"> Brasil
+                </p>
+                <br><br>
+                <a href="identikit.html">Volver a la página principal</a>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    function verificarRespuesta(respuestaSeleccionada) {
+        let respuestaCorrecta = 'd'; // La respuesta correcta para la Pregunta 2 es 'd' (Brasil)
+        if (respuestaSeleccionada === respuestaCorrecta) {
+            window.location.href = 'trivia3.html';
+        } else {
+            window.location.href = 'derrotatrivia.html';
+        }
+    }
+</script>
+
+</body>
+</html>

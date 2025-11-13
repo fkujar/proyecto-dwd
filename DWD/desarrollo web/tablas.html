@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Anual 2024 - Fútbol Argentino</title>
+    <style>
+        body {
+            background-color: #0084ff;
+            font-family: Arial, sans-serif;
+            color: rgb(0, 0, 0);
+        }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #000000;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        .pos-1 { color: #00ffea; font-weight: bold; }
+        .pos-2 { color: #00d5ff; font-weight: bold; }
+        .pos-3 { color: #ff3333; font-weight: bold; }
+        .pos-4 { color: #33ff77; font-weight: bold; }
+        .pos-5 { color: #ffd633; font-weight: bold; }
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .team img {
+            width: 24px;
+            height: 24px;
+        }
+        .volver {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: gold;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .volver:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center; color: rgb(0, 0, 0);">Tabla Anual 2024 de Argentina</h2>
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>Equipo</th>
+            <th>PTS</th>
+            <th>PJ</th>
+            <th>PG</th>
+            <th>PE</th>
+            <th>PP</th>
+            <th>DG</th>
+            <th>GF</th>
+            <th>GC</th>
+        </tr>
+        <tr><td class="pos-1">1</td><td class="team"><img src="tablaimg/f1.png">Vélez</td><td>76</td><td>41</td><td>21</td><td>13</td><td>7</td><td>+23</td><td>52</td><td>29</td></tr>
+        <tr><td class="pos-2">2</td><td class="team"><img src="tablaimg/f2.png">Talleres</td><td>72</td><td>41</td><td>19</td><td>15</td><td>7</td><td>+15</td><td>58</td><td>43</td></tr>
+        <tr><td class="pos-3">3</td><td class="team"><img src="tablaimg/f3.png">River</td><td>70</td><td>41</td><td>18</td><td>16</td><td>7</td><td>+33</td><td>64</td><td>31</td></tr>
+        <tr><td class="pos-4">4</td><td class="team"><img src="tablaimg/f4.png">Racing</td><td>70</td><td>41</td><td>21</td><td>7</td><td>13</td><td>+25</td><td>66</td><td>41</td></tr>
+        <tr><td class="pos-5">5</td><td class="team"><img src="tablaimg/f5.png">Boca</td><td>67</td><td>41</td><td>18</td><td>13</td><td>10</td><td>+15</td><td>50</td><td>35</td></tr>
+        <tr><td>6</td><td class="team"><img src="tablaimg/f6.png">Godoy Cruz</td><td>64</td><td>41</td><td>17</td><td>13</td><td>11</td><td>+13</td><td>47</td><td>34</td></tr>
+        <tr><td>7</td><td class="team"><img src="tablaimg/f7.png">Estudiantes (LP)</td><td>63</td><td>41</td><td>16</td><td>15</td><td>10</td><td>+12</td><td>55</td><td>43</td></tr>
+        <tr><td>8</td><td class="team"><img src="tablaimg/f8.png">Independiente</td><td>63</td><td>41</td><td>15</td><td>18</td><td>8</td><td>+12</td><td>39</td><td>27</td></tr>
+        <tr><td>9</td><td class="team"><img src="tablaimg/f9.png">Huracán</td><td>62</td><td>41</td><td>16</td><td>14</td><td>11</td><td>+10</td><td>40</td><td>30</td></tr>
+        <tr><td>10</td><td class="team"><img src="tablaimg/f10.png">Unión</td><td>60</td><td>41</td><td>16</td><td>12</td><td>13</td><td>+3</td><td>43</td><td>40</td></tr>
+    </table>
+
+    <!-- Botón volver -->
+    <a href="identikit.html" class="volver" style="text-decoration: none; color: #333333;">⬅ Volver a la página principal</a>
+
+</body>
+</html>

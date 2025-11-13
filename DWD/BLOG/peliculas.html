@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars - Películas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-button">&times;</button>
+            <form class="login-form" id="login-form">
+                <h2>Iniciar Sesión</h2>
+                <p>Usa **jedi@galaxia.com** y **fuerza**</p>
+                <div class="form-group"> <label for="email">Email:</label> <input type="email" id="email" required> </div>
+                <div class="form-group"> <label for="password">Contraseña:</label> <input type="password" id="password" required> </div>
+                <button type="submit" class="login-button">Entrar</button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <h1>El Universo de Star Wars</h1>
+        </header>
+
+        <nav>
+            <button class="menu-toggle" aria-label="Abrir menú">☰ Menú</button>
+            <ul id="main-nav"></ul>
+        </nav>
+
+        <main class="main-single-column">
+            <h2>Filmografía (Episodios I-VI)</h2>
+            
+            <div class="grid-container">
+                <article class="pelicula">
+                    <h3>Episodio IV: Una Nueva Esperanza</h3>
+                    <img src="fotostar/pelicula5.png" alt="Póster de Star Wars Episodio IV: Una Nueva Esperanza">
+                    <p><strong>Estreno (EE.UU.):</strong> 25 de mayo de 1977</p>
+                    <p>El joven granjero Luke Skywalker se ve arrastrado a un conflicto galáctico cuando intercepta un mensaje de ayuda de la Princesa Leia. Se une al Maestro Jedi Obi-Wan Kenobi y al contrabandista Han Solo para rescatar a la princesa y destruir la poderosa estación de batalla del Imperio, la Estrella de la Muerte.</p>
+                </article>
+
+                <article class="pelicula">
+                    <h3>Episodio V: El Imperio Contraataca</h3>
+                    <img src="fotostar/pelicula6.png" alt="Póster de Star Wars Episodio V: El Imperio Contraataca">
+                    <p><strong>Estreno (EE.UU.):</strong> 21 de mayo de 1980</p>
+                    <p>Después de una devastadora derrota en el planeta helado Hoth, los rebeldes se dispersan. Luke Skywalker viaja a Dagobah para entrenar con el Maestro Yoda, mientras Han Solo y la Princesa Leia son perseguidos por Darth Vader, culminando en una revelación impactante.</p>
+                </article>
+
+                <article class="pelicula">
+                    <h3>Episodio VI: El Retorno del Jedi</h3>
+                    <img src="fotostar/pelicula4.png" alt="Póster de Star Wars Episodio VI: El Retorno del Jedi">
+                    <p><strong>Estreno (EE.UU.):</strong> 25 de mayo de 1983</p>
+                    <p>La Alianza Rebelde lanza un ataque masivo contra la segunda Estrella de la Muerte. Mientras tanto, Luke Skywalker se enfrenta a Darth Vader y al Emperador Palpatine en un duelo final que decidirá el destino de la galaxia y el de su propia alma.</p>
+                </article>
+
+                <article class="pelicula">
+                    <h3>Episodio I: La Amenaza Fantasma</h3>
+                    <img src="fotostar/pelicula1.png" alt="Póster de Star Wars Episodio I: La Amenaza Fantasma">
+                    <p><strong>Estreno (EE.UU.):</strong> 19 de mayo de 1999</p>
+                    <p>Dos Jedi, Qui-Gon Jinn y su aprendiz Obi-Wan Kenobi, descubren al joven Anakin Skywalker en Tatooine mientras protegen a la Reina Padmé Amidala de la codiciosa Federación de Comercio, sin saber que un antiguo mal, los Sith, ha regresado.</p>
+                </article>
+                
+                <article class="pelicula">
+                    <h3>Episodio II: El Ataque de los Clones</h3>
+                    <img src="fotostar/pelicula2.png" alt="Póster de Star Wars Episodio II: El Ataque de los Clones">
+                    <p><strong>Estreno (EE.UU.):</strong> 16 de mayo de 2002</p>
+                    <p>Diez años después, Anakin comparte un romance prohibido con Padmé Amidala, mientras Obi-Wan investiga un intento de asesinato que lo lleva a descubrir un ejército secreto de clones y el inicio de un movimiento separatista galáctico.</p>
+                </article>
+                
+                <article class="pelicula">
+                    <h3>Episodio III: La Venganza de los Sith</h3>
+                    <img src="fotostar/pelicula3.png" alt="Póster de Star Wars Episodio III: La Venganza de los Sith">
+                    <p><strong>Estreno (EE.UU.):</strong> 19 de mayo de 2005</p>
+                    <p>Las Guerras Clon llegan a su fin. El Canciller Palpatine ejecuta su plan maestro para destruir a los Jedi y tomar el control de la galaxia. Anakin Skywalker, seducido por el lado oscuro, se transforma en Darth Vader, y la República cae.</p>
+                </article>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="personajes.html">Personajes</a></li>
+                        <li><a href="peliculas.html">Películas (I-VI)</a></li>
+                        <li><a href="peliculas_modernas.html">Películas Modernas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Enlaces Oficiales</h4>
+                    <ul>
+                        <li><a href="https://www.starwars.com" target="_blank">StarWars.com</a></li>
+                        <li><a href="https://www.disneyplus.com" target="_blank">Disney+</a></li>
+                        <li><a href="https://www.lucasfilm.com" target="_blank">Lucasfilm</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <a href="mailto:tu-email@ejemplo.com" class="contact-link">
+            ✉️ fkujarchuk@uade.edu.ar
+        </a>
+                </div>
+            </div>
+           
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
