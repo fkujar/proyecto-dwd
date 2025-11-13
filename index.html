@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Proyectos</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1c1e21;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+            /* --- TU FONDO DE PANTALLA --- */
+            /* Esta es la ruta a tu imagen, con comillas por el espacio */
+            background-image: url('desarrollo web/imagenes sec/image.png');
+            
+            /* Esto hace que cubra la pantalla y no se repita */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .main-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #1c1e21;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #65676b;
+            margin-bottom: 30px;
+        }
+
+        .link-button {
+            display: block;
+            background-color: #e4e6eb;
+            color: #1c1e21;
+            border: none;
+            padding: 18px 20px;
+            margin: 16px auto;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            max-width: 90%;
+        }
+
+        .link-button:hover {
+            background-color: #000000;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        .contact-link {
+            font-size: 1em;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            margin-top: 30px;
+            display: inline-block;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    </head>
+<div class="main-card">
+        
+        <img src="BLOG/fotostar/fotoperfil.jpg" alt="Tu Foto de Perfil" class="profile-pic">
+
+        <h1>Felipe Kujarchuk</h1>
+        <p>Lintree para la materia de diseño y desarrolo web con el fin de agregar todos los trabajos a esta pagina</p>
+
+        <a href="desarrollo web/identikit.html" class="link-button" target="_blank" rel="noopener noreferrer">
+            Identikit TP1
+        </a>
+        
+        <a href="BLOG/index.html" class="link-button" target="_blank" rel="noopener noreferrer">
+            Blog personal TP2
+        </a>
+        
+        <a href="https://URL_DE_TU_PAGINA_3.com" class="link-button" target="_blank" rel="noopener noreferrer">
+            Pronto: Trabajo ONG final
+        </a>
+
+        <a href="mailto:tu-email@ejemplo.com" class="contact-link">
+           ✉️ fkujarchuk@uade.edu.ar
+        </a>
+
+    </div>
+
+</body>
+</html>
